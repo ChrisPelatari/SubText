@@ -1,4 +1,4 @@
-﻿<#@ template language="C#v3.5" debug="True" hostspecific="True" #>
+﻿<#@ template language="C#v4" debug="True" hostspecific="True" #>
 <#@ include file="_Settings.tt" #>
 
 //<#=  System.IO.Path.GetFullPath(Host.ResolvePath(@"..\..\..\Subtext.Web\App_Data\Subtext2.2.mdf")) #>

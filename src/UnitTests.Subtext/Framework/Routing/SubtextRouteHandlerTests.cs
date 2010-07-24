@@ -28,7 +28,7 @@ namespace UnitTests.Subtext.Framework.Routing
             var pageBuilder = new Mock<ISubtextPageBuilder>();
             pageBuilder.Setup(b => b.CreateInstanceFromVirtualPath(It.IsAny<string>(), It.IsAny<Type>())).Returns(
                 pageWithControls.Object);
-            IRouteHandler subtextRouteHandler = new PageRouteHandler("~/aspx/Dtp.aspx", pageBuilder.Object,
+            IRouteHandler subtextRouteHandler = new Subtext.Framework.Routing.PageRouteHandler("~/aspx/Dtp.aspx", pageBuilder.Object,
                                                                      new Mock<IServiceLocator>().Object);
 
             //act

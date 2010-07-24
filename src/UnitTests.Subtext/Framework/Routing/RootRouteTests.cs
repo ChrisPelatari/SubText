@@ -23,7 +23,7 @@ namespace UnitTests.Subtext.Framework.Routing
             RouteData routeData = route.GetRouteData(httpContext.Object);
 
             //assert
-            var routeHandler = routeData.RouteHandler as PageRouteHandler;
+            var routeHandler = routeData.RouteHandler as Subtext.Framework.Routing.PageRouteHandler;
             Assert.AreEqual("~/aspx/AggDefault.aspx", routeHandler.VirtualPath);
             Assert.AreSame(route, routeData.Route);
             Assert.IsFalse(routeData.DataTokens.ContainsKey(PageRoute.ControlNamesKey));
@@ -41,7 +41,7 @@ namespace UnitTests.Subtext.Framework.Routing
             RouteData routeData = route.GetRouteData(httpContext.Object);
 
             //assert
-            var routeHandler = routeData.RouteHandler as PageRouteHandler;
+            var routeHandler = routeData.RouteHandler as Subtext.Framework.Routing.PageRouteHandler;
             Assert.AreEqual("~/aspx/Dtp.aspx", routeHandler.VirtualPath);
             Assert.AreSame(route, routeData.Route);
             Assert.IsTrue(routeData.DataTokens.ContainsKey(PageRoute.ControlNamesKey));
@@ -59,7 +59,7 @@ namespace UnitTests.Subtext.Framework.Routing
             RouteData routeData = route.GetRouteData(httpContext.Object);
 
             //assert
-            var routeHandler = routeData.RouteHandler as PageRouteHandler;
+            var routeHandler = routeData.RouteHandler as Subtext.Framework.Routing.PageRouteHandler;
             Assert.AreEqual("~/aspx/Dtp.aspx", routeHandler.VirtualPath);
             Assert.AreSame(route, routeData.Route);
         }

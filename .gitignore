@@ -4,3 +4,5 @@ obj
 *.patch
 *.user
 *.suo
+*.ldf
+*.LDF
