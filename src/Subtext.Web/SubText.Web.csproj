@@ -29,6 +29,7 @@
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Build|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +52,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <ErrorReport>prompt</ErrorReport>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BlogML, Version=1.0.2229.38505, Culture=neutral">
@@ -101,34 +104,21 @@
       <HintPath>..\Dependencies\Snowball.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\System.Web.Abstractions.dll</HintPath>
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Extensions.Design" />
-    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\System.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Web.Routing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\System.Web.Routing.dll</HintPath>
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
@@ -656,6 +646,7 @@
     <Compile Include="Controls\RepeaterWithEmptyDataTemplate.cs" />
     <Compile Include="Controls\RichTextEditor.cs" />
     <Compile Include="Controls\ScriptHelper.cs" />
+    <Compile Include="Controls\SkinControl.cs" />
     <Compile Include="Dependencies.cs" />
     <Compile Include="Controllers\CommentApiController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -901,7 +892,9 @@
     <Content Include="emoticons.txt" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <None Include="Web.config" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Global.asax.resx">
@@ -2403,6 +2396,7 @@
     <Content Include="Skins\WPSkin\style.css" />
     <Content Include="Skins\_System\commonlayout.css" />
     <Content Include="Skins\_System\commonstyle.css" />
+    <Content Include="Skins\_System\Controls\ArchivesPage.ascx" />
     <Content Include="Skins\_System\Controls\Error.ascx" />
     <Content Include="Skins\_System\Controls\Footer.ascx" />
     <Content Include="Skins\_System\Controls\FullTagCloud.ascx" />
@@ -2427,7 +2421,6 @@
     <Content Include="aspx\HostAdmin\HostAdminTemplate.Master" />
     <Content Include="aspx\HostAdmin\Web.config" />
     <Content Include="aspx\Install\InstallTemplate.Master" />
-    <None Include="aspx\Install\Step03_CreateBlog.aspx.cs.bak" />
     <None Include="aspx\Providers\BlogEntryEditor\FCKeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
     <None Include="aspx\Providers\BlogEntryEditor\FCKeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
     <None Include="aspx\Providers\BlogEntryEditor\FCKeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />

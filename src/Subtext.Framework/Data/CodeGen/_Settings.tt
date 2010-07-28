@@ -10,7 +10,7 @@
 <#@ import namespace="System.Data.Common" #>
 <#@ import namespace="System.Text" #>
 <#+
-const string ConnectionString=@"Server=.\SQLEXRESS;AttachDbFilename=|DataDirectory|\Subtext2.2.mdf;Database=Subtext2.2;Trusted_Connection=Yes;";
+const string ConnectionString=@"Server=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Subtext2.2.mdf;Database=Subtext2.2;Trusted_Connection=Yes;";
 const string Namespace = "Subtext.Framework.Data";
 const string ProviderName="subtextData";
 string[] ExcludeTables= new string[]{"sysdiagrams"};

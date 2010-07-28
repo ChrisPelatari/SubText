@@ -69,6 +69,7 @@
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -92,6 +93,7 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Documentation|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -114,6 +116,7 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Build|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -129,6 +132,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <ErrorReport>prompt</ErrorReport>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BlogML, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -178,6 +182,7 @@
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -192,21 +197,13 @@
     <Reference Include="System.Web">
       <Name>System.Web</Name>
     </Reference>
-    <Reference Include="System.Web.Abstractions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\System.Web.Abstractions.dll</HintPath>
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Mobile" />
-    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Routing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dependencies\System.Web.Routing.dll</HintPath>
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.Services">
       <Name>System.Web.Services</Name>
     </Reference>
@@ -432,57 +429,57 @@
     <Compile Include="ImportExport\IBlogMLImportMapper.cs" />
     <Compile Include="ImportExport\IBlogMLSource.cs" />
     <Compile Include="ImportExport\IBlogMLWriter.cs" />
-    <Compile Include="Logging\Infrastructure\ActionResults\ExportActionResult.cs" />
-    <Compile Include="Logging\Infrastructure\Bootstrapper.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\IInstallationManager.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\IInstaller.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\InstallationManager.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\InstallationScriptInfo.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\InstallationState.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\ScriptHelper.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\ConnectionString.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\Exceptions\SqlParseException.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\Exceptions\SqlScriptExecutionException.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\IScript.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\ITemplateScript.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\ParameterValueChangedEventArgs.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\Script.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\ScriptCollection.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\ScriptSplitter.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\SqlScriptRunner.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\TemplateParameter.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\Scripting\TemplateParameterCollection.cs" />
-    <Compile Include="Logging\Infrastructure\Installation\SqlInstaller.cs" />
-    <Compile Include="Logging\Infrastructure\IServiceLocator.cs" />
-    <Compile Include="Logging\Infrastructure\ITimeZone.cs" />
-    <Compile Include="Logging\Infrastructure\ModelBinders\XmlModelBinder.cs" />
-    <Compile Include="Logging\Infrastructure\NinjectServiceLocator.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\AdminUrlHelper.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\AggregateEnabledConstraint.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\DirectoryRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\DirectoryRouteHandler.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\HttpRouteHandler.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\IDirectoryRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\IgnoreRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\ImageRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\IPageWithControls.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\ISubtextHandler.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\ISubtextPageBuilder.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\PageRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\PageRouteHandler.cs" />
-    <Compile Include="Logging\Infrastructure\Pipeline\PipelineService.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\RootRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\RouteHandlerBase.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\SubfolderRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\SubtextPageBuilder.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\SubtextRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\SubtextRouteCollection.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\SubtextRouteExtensions.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\SystemDirectoryRoute.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\UrlHelper.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\VirtualPath.cs" />
-    <Compile Include="Logging\Infrastructure\Routing\XmlRpcRouteHandler.cs" />
-    <Compile Include="Logging\Infrastructure\TimeZoneWrapper.cs" />
+    <Compile Include="Infrastructure\ActionResults\ExportActionResult.cs" />
+    <Compile Include="Infrastructure\Bootstrapper.cs" />
+    <Compile Include="Infrastructure\Installation\IInstallationManager.cs" />
+    <Compile Include="Infrastructure\Installation\IInstaller.cs" />
+    <Compile Include="Infrastructure\Installation\InstallationManager.cs" />
+    <Compile Include="Infrastructure\Installation\InstallationScriptInfo.cs" />
+    <Compile Include="Infrastructure\Installation\InstallationState.cs" />
+    <Compile Include="Infrastructure\Installation\ScriptHelper.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\ConnectionString.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\Exceptions\SqlParseException.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\Exceptions\SqlScriptExecutionException.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\IScript.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\ITemplateScript.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\ParameterValueChangedEventArgs.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\Script.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\ScriptCollection.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\ScriptSplitter.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\SqlScriptRunner.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\TemplateParameter.cs" />
+    <Compile Include="Infrastructure\Installation\Scripting\TemplateParameterCollection.cs" />
+    <Compile Include="Infrastructure\Installation\SqlInstaller.cs" />
+    <Compile Include="Infrastructure\IServiceLocator.cs" />
+    <Compile Include="Infrastructure\ITimeZone.cs" />
+    <Compile Include="Infrastructure\ModelBinders\XmlModelBinder.cs" />
+    <Compile Include="Infrastructure\NinjectServiceLocator.cs" />
+    <Compile Include="Infrastructure\Routing\AdminUrlHelper.cs" />
+    <Compile Include="Infrastructure\Routing\AggregateEnabledConstraint.cs" />
+    <Compile Include="Infrastructure\Routing\DirectoryRoute.cs" />
+    <Compile Include="Infrastructure\Routing\DirectoryRouteHandler.cs" />
+    <Compile Include="Infrastructure\Routing\HttpRouteHandler.cs" />
+    <Compile Include="Infrastructure\Routing\IDirectoryRoute.cs" />
+    <Compile Include="Infrastructure\Routing\IgnoreRoute.cs" />
+    <Compile Include="Infrastructure\Routing\ImageRoute.cs" />
+    <Compile Include="Infrastructure\Routing\IPageWithControls.cs" />
+    <Compile Include="Infrastructure\Routing\ISubtextHandler.cs" />
+    <Compile Include="Infrastructure\Routing\ISubtextPageBuilder.cs" />
+    <Compile Include="Infrastructure\Routing\PageRoute.cs" />
+    <Compile Include="Infrastructure\Routing\PageRouteHandler.cs" />
+    <Compile Include="Infrastructure\Pipeline\PipelineService.cs" />
+    <Compile Include="Infrastructure\Routing\RootRoute.cs" />
+    <Compile Include="Infrastructure\Routing\RouteHandlerBase.cs" />
+    <Compile Include="Infrastructure\Routing\SubfolderRoute.cs" />
+    <Compile Include="Infrastructure\Routing\SubtextPageBuilder.cs" />
+    <Compile Include="Infrastructure\Routing\SubtextRoute.cs" />
+    <Compile Include="Infrastructure\Routing\SubtextRouteCollection.cs" />
+    <Compile Include="Infrastructure\Routing\SubtextRouteExtensions.cs" />
+    <Compile Include="Infrastructure\Routing\SystemDirectoryRoute.cs" />
+    <Compile Include="Infrastructure\Routing\UrlHelper.cs" />
+    <Compile Include="Infrastructure\Routing\VirtualPath.cs" />
+    <Compile Include="Infrastructure\Routing\XmlRpcRouteHandler.cs" />
+    <Compile Include="Infrastructure\TimeZoneWrapper.cs" />
     <Compile Include="PostConfig.cs" />
     <Compile Include="PostType.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -508,10 +505,10 @@
     <Compile Include="Images.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Logging\Infrastructure\ActionResults\CacheableFileContentResult.cs" />
-    <Compile Include="Logging\Infrastructure\ActionResults\NotModifiedResult.cs" />
-    <Compile Include="Logging\Infrastructure\ICache.cs" />
-    <Compile Include="Logging\Infrastructure\SubtextCache.cs" />
+    <Compile Include="Infrastructure\ActionResults\CacheableFileContentResult.cs" />
+    <Compile Include="Infrastructure\ActionResults\NotModifiedResult.cs" />
+    <Compile Include="Infrastructure\ICache.cs" />
+    <Compile Include="Infrastructure\SubtextCache.cs" />
     <Compile Include="ISubtextContext.cs" />
     <Compile Include="Links.cs">
       <SubType>Code</SubType>
@@ -583,6 +580,7 @@
     <Compile Include="Syndication\OpmlWriter.cs" />
     <Compile Include="UI\Skinning\IContainerControl.cs" />
     <Compile Include="UI\Skinning\IErrorControl.cs" />
+    <Compile Include="UI\Skinning\ISkinControlContainer.cs" />
     <Compile Include="UI\Skinning\ISkinControlLoader.cs" />
     <Compile Include="UI\Skinning\SkinControlLoader.cs" />
     <Compile Include="UI\Skinning\SkinControlLoadException.cs" />
@@ -762,10 +760,10 @@
     <Compile Include="XmlRpc\Post.cs" />
     <Compile Include="XmlRpc\Source.cs" />
     <Compile Include="XmlRpc\SubtextXmlRpcService.cs" />
-    <Content Include="Logging\Infrastructure\Installation\Scripting\Subtext.Scripting.csproj" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\WelcomePost.htm" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\WelcomeComment.htm" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\WelcomeArticle.htm" />
+    <Content Include="Infrastructure\Installation\Scripting\Subtext.Scripting.csproj" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\WelcomePost.htm" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\WelcomeComment.htm" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\WelcomeArticle.htm" />
     <Content Include="license.txt" />
     <Content Include="Logging\LoggingConfigurationExample.xml" />
     <EmbeddedResource Include="Util\TimeZones.txt" />
@@ -773,18 +771,18 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>StoredProcedures.cs</LastGenOutput>
     </None>
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\ImportDotText095.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.00.00.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.05.00.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.09.00.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.09.02.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.09.03.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.09.04.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.09.05.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.01.09.06.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.02.00.00.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\Installation.02.02.00.sql" />
-    <EmbeddedResource Include="Logging\Infrastructure\Installation\Scripts\StoredProcedures.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\ImportDotText095.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.00.00.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.05.00.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.09.00.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.09.02.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.09.03.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.09.04.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.09.05.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.01.09.06.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.02.00.00.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.02.02.00.sql" />
+    <EmbeddedResource Include="Infrastructure\Installation\Scripts\StoredProcedures.sql" />
     <EmbeddedResource Include="Services\Email\Templates\CommentReceived.template" />
     <EmbeddedResource Include="Infrastructure\Installation\Scripts\Installation.02.05.01.sql" />
     <None Include="Web References\com.community-credit.www\affiliateservices.disco" />

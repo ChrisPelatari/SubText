@@ -296,7 +296,7 @@ namespace UnitTests.Subtext.Framework.Routing
             string url = helper.IdenticonUrl(123);
 
             //assert
-            Assert.AreEqual("/Subtext.Web/images/IdenticonHandler.ashx?code=123", url);
+            Assert.AreEqual("/Subtext.Web/images/services/IdenticonHandler.ashx?code=123", url);
         }
 
         [Test]
@@ -309,7 +309,7 @@ namespace UnitTests.Subtext.Framework.Routing
             string url = helper.IdenticonUrl(123);
 
             //assert
-            Assert.AreEqual("/images/IdenticonHandler.ashx?code=123", url);
+            Assert.AreEqual("/images/services/IdenticonHandler.ashx?code=123", url);
         }
 
         [Test]
@@ -324,7 +324,7 @@ namespace UnitTests.Subtext.Framework.Routing
             string url = helper.IdenticonUrl(123);
 
             //assert
-            Assert.AreEqual("/images/IdenticonHandler.ashx?code=123", url);
+            Assert.AreEqual("/images/services/IdenticonHandler.ashx?code=123", url);
         }
 
         [Test]
@@ -809,10 +809,10 @@ namespace UnitTests.Subtext.Framework.Routing
             UrlHelper helper = SetupUrlHelper("/");
 
             //act
-            string url = helper.CategoryUrl(new LinkCategory {Id = 1234});
+            string url = helper.CategoryUrl(new LinkCategory {Id = 1234, Title = "my-category"});
 
             //assert
-            Assert.AreEqual("/category/1234.aspx", url);
+            Assert.AreEqual("/category/my-category.aspx", url);
         }
 
         [Test]
