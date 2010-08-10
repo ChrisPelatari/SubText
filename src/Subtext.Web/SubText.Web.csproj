@@ -908,6 +908,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\icons\edit-in-wlw.gif" />
+    <Content Include="Scripts\wmd\showdown.js" />
+    <Content Include="Scripts\wmd\wmd-base.js" />
+    <Content Include="Scripts\wmd\wmd-plus.js" />
+    <Content Include="Scripts\wmd\wmd.js" />
     <Content Include="transform.txt" />
   </ItemGroup>
   <ItemGroup>
