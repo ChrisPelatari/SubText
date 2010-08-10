@@ -90,7 +90,7 @@ public static class Routes
 
         routes.MapPagesToControlOfSameName("contact", "ArchivePostPage", "ArticleCategories", "search");
 
-        routes.MapControls("archives", "archives.aspx", null, new[] {"SingleColumn"});
+        routes.MapControls("archives", "archives.aspx", null, new[] {"ArchivesPage"});
 
         routes.MapControls("entries-by-day", "archive/{year}/{month}/{day}.aspx"
                            , new {year = @"[1-9]\d{3}", month = @"(0\d)|(1[0-2])", day = @"([0-2]\d)|(3[0-1])"}
@@ -129,9 +129,11 @@ public static class Routes
         routes.MapHttpHandler<TrackBackHandler>("trackbacks", "services/trackbacks/{id}.aspx", new {id = @"\d+"});
         routes.MapXmlRpcHandler<PingBackService>("services/pingback/{id}.aspx", new {id = @"\d+"});
         routes.MapXmlRpcHandler<MetaWeblog>("metaweblogapi", "services/metablogapi.aspx", null);
-        
-        routes.Add("identicon", new Route("images/IdenticonHandler.ashx", new MvcRouteHandler()) {Defaults = new RouteValueDictionary(new {controller = "identicon", action = "image"})});
-        routes.Add("captcha", new Route("images/CaptchaImage.ashx", new HttpRouteHandler<CaptchaImageHandler>(routes.ServiceLocator)));
+
+        routes.MapRoute("wlw","",null);
+
+        routes.Add("identicon", new Route("images/services/IdenticonHandler.ashx", new MvcRouteHandler()) {Defaults = new RouteValueDictionary(new {controller = "identicon", action = "image"})});
+        routes.Add("captcha", new Route("images/services/CaptchaImage.ashx", new HttpRouteHandler<CaptchaImageHandler>(routes.ServiceLocator)));
         routes.Add("logout", new SubtextRoute("account/logout.ashx", new MvcRouteHandler()) { Defaults = new RouteValueDictionary(new { controller = "account", action = "logout" }) });
         routes.MapRoot();
     }

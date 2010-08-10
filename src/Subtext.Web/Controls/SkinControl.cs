@@ -1,4 +1,4 @@
-#region Disclaimer/Info
+﻿#region Disclaimer/Info
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Subtext WebLog
@@ -16,12 +16,26 @@
 #endregion
 
 using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
+using System.Web.UI;
+using Subtext.Framework.UI.Skinning;
 
-[assembly: AssemblyTitle("Subtext.Framework")]
-[assembly: AssemblyDescription("Contains the core business logic for Subtext.")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
-[assembly: CLSCompliant(false)]
+namespace Subtext.Web.Controls
+{
+    public class SkinControl : Control
+    {
+        protected override void OnLoad(EventArgs e)
+        {
+            var parent = Parent as ISkinControlContainer;
+            if (parent != null)
+            {
+                SkinUserControl = parent.SkinControlLoader.LoadControl(ControlName);
+                this.Controls.AddAt(0, SkinUserControl);
+            }
+            base.OnLoad(e);
+        }
+
+        public Control SkinUserControl { get; set; }
+
+        public string ControlName { get; set; }
+    }
+}

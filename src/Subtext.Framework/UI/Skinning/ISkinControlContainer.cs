@@ -1,4 +1,4 @@
-#region Disclaimer/Info
+﻿#region Disclaimer/Info
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 // Subtext WebLog
@@ -15,13 +15,10 @@
 
 #endregion
 
-using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
-
-[assembly: AssemblyTitle("Subtext.Framework")]
-[assembly: AssemblyDescription("Contains the core business logic for Subtext.")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
-[assembly: CLSCompliant(false)]
+namespace Subtext.Framework.UI.Skinning
+{
+    public interface ISkinControlContainer
+    {
+        ISkinControlLoader SkinControlLoader { get; set; }
+    }
+}

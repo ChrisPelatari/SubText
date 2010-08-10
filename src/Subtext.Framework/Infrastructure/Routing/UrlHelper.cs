@@ -349,6 +349,12 @@ namespace Subtext.Framework.Routing
             return GetVirtualPath("search", new { q = keywords });
         }
 
+        public virtual string WindowsLiveWriterEditUrl(int id, Blog blog)
+        {
+            string url = GetVirtualPath("wlw", new { postid = id }).ToFullyQualifiedUrl(blog).ToString();
+            return url.Replace("http","wlw");
+        }
+
         public virtual VirtualPath MonthUrl(DateTime dateTime)
         {
             var routeValues = new RouteValueDictionary
@@ -376,7 +382,7 @@ namespace Subtext.Framework.Routing
 
         public virtual VirtualPath CategoryUrl(Category category)
         {
-            var routeValues = new RouteValueDictionary {{"slug", category.Id}, {"categoryType", "category"}};
+            var routeValues = new RouteValueDictionary {{"slug", category.Title}, {"categoryType", "category"}};
             return GetVirtualPath("category", routeValues);
         }
 
@@ -587,9 +593,15 @@ namespace Subtext.Framework.Routing
             return AppRoot() + "images/icons/edit.gif";
         }
 
+        public virtual VirtualPath EditInWlwIconUrl()
+        {
+            return AppRoot() + "images/icons/edit-in-wlw.gif";
+        }
+
         public virtual VirtualPath TagUrl(string tagName)
         {
-            return GetVirtualPath("tag", new RouteValueDictionary{{"tag", tagName.Replace("#", "{:#:}")}});
+            //return GetVirtualPath("tag", new RouteValueDictionary{{"tag", tagName.Replace("#", "{:#:}")}});
+            return GetVirtualPath("tag", new RouteValueDictionary { { "tag", tagName } });
         }
 
         public virtual VirtualPath TagCloudUrl()
