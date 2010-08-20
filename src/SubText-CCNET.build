@@ -18,8 +18,8 @@
 			<fail message="CCNetLabel property not set, so can't create distribution files" />
 		</if>
     <property name="dotnetfx" value="C:\WINDOWS\Microsoft.NET\Framework" />
-    <property name="aspnet_compiler.exe" value="${dotnetfx}\v2.0.50727\aspnet_compiler.exe" />
-    <property name="msbuild.exe" value="${dotnetfx}\v3.5\MSBuild.exe" />
+    <property name="aspnet_compiler.exe" value="${dotnetfx}\v4.0.30319\aspnet_compiler.exe" />
+    <property name="msbuild.exe" value="${dotnetfx}\v4.0.30319\MSBuild.exe" />
 		<property name="solution.dir" value="${CCNetWorkingDirectory}\src" />
 		<property name="tools.dir" value="${CCNetWorkingDirectory}\tools" />
 		<property name="webPI.dir" value="${tools.dir}\WebPI" />

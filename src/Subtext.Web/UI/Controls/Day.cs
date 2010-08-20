@@ -19,6 +19,7 @@ using System;
 using System.Web.UI.WebControls;
 using Subtext.Framework.Components;
 using Subtext.Web.Controls;
+using MarkdownSharp;
 
 namespace Subtext.Web.UI.Controls
 {
@@ -70,6 +71,7 @@ namespace Subtext.Web.UI.Controls
 
                 if(DateTitle != null)
                     DateTitle.Text = CurrentDay.BlogDay.ToLongDateString();
+
                 DayList.DataSource = CurrentDay;
                 DayList.DataBind();
             }
@@ -82,6 +84,11 @@ namespace Subtext.Web.UI.Controls
         void DayList_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             Entry = e.Item.DataItem as Entry;
+
+			if (Entry != null && Entry.ContentTypeIsMarkdown) {
+				var m = new Markdown();
+				Entry.Body = m.Transform(Entry.Body);
+			}
         }
     }
 }

@@ -30,6 +30,7 @@ using Subtext.Framework.Tracking;
 using Subtext.Infrastructure;
 using Subtext.Web.Controls;
 using Subtext.Web.Properties;
+using MarkdownSharp;
 
 namespace Subtext.Web.UI.Controls
 {
@@ -73,6 +74,12 @@ namespace Subtext.Web.UI.Controls
                 TitleUrl.Text = entry.Title;
                 ControlHelper.SetTitleIfNone(TitleUrl, "Title of this entry.");
                 TitleUrl.NavigateUrl = Url.EntryUrl(entry);
+
+				if (entry.ContentTypeIsMarkdown) {
+					var m = new Markdown();
+					entry.Body = m.Transform(entry.Body);
+				}
+
                 Body.Text = entry.Body;
                 if(PostDescription != null)
                 {

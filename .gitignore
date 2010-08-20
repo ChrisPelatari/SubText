@@ -1,8 +1,11 @@
 .svn
 bin
 obj
+logs
 *.patch
 *.user
 *.suo
 *.ldf
 *.LDF
+*.log
+*.cache

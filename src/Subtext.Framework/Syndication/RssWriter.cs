@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using Subtext.Framework.Components;
 using Subtext.Framework.Routing;
+using MarkdownSharp;
 
 namespace Subtext.Framework.Syndication
 {
@@ -88,6 +89,11 @@ namespace Subtext.Framework.Syndication
         /// <returns></returns>
         protected override string GetBodyFromItem(Entry item)
         {
+			if (!item.SyndicateDescriptionOnly && item.ContentTypeIsMarkdown) {
+				var m = new Markdown();
+				item.Body = m.Transform(item.Body);
+			}
+
             return item.SyndicateDescriptionOnly ? item.Description : item.Body; //use desc or full post
         }
 

@@ -25,6 +25,7 @@ using Subtext.Framework.Routing;
 using Subtext.Framework.Text;
 using Subtext.Framework.Tracking;
 using Subtext.Infrastructure;
+using MarkdownSharp;
 
 namespace Subtext.Framework.Syndication
 {
@@ -212,6 +213,11 @@ namespace Subtext.Framework.Syndication
             WriteAttributeString("type", "html");
             //(Duncanma 11/13/2005, hiding mode for 1.0 feed)
             //this.WriteAttributeString("mode","escaped");
+
+			if (!entry.SyndicateDescriptionOnly && entry.ContentTypeIsMarkdown) {
+				var m = new Markdown();
+				entry.Body = m.Transform(entry.Body);
+			}
 
             WriteString
                 (
