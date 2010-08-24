@@ -3,6 +3,7 @@ bin
 obj
 logs
 segments_3
+*.bak
 *.patch
 *.user
 *.suo
