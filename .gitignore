@@ -2,6 +2,7 @@
 bin
 obj
 logs
+segments_3
 *.patch
 *.user
 *.suo
@@ -9,3 +10,7 @@ logs
 *.LDF
 *.log
 *.cache
+*.mdf
+*.lock
+*.cfs
+*.gen
